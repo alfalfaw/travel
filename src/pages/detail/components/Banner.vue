@@ -72,6 +72,7 @@ export default {
       margin-top: 0.14rem;
       height: 0.32rem;
       line-height: 0.32rem;
+      margin-right: 0.2rem;
       background: rgba(0, 0, 0, 0.8);
       font-size: 0.24rem;
       .banner-icon {
