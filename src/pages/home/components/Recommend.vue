@@ -4,7 +4,7 @@
       热销推荐
     </div>
     <ul>
-      <li class="item" v-for="item of recommendList" :key="item.id">
+      <li class="item" v-for="item of recommendList" :key="'recommend' + item.id">
         <img :src="item.imgUrl" alt="" />
         <div class="item-info">
           <p class="item-title">{{ item.title }}</p>

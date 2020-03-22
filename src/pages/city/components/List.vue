@@ -4,15 +4,15 @@
       <div class="area">
         <div class="title border-top-bottem">当前城市</div>
         <div class="button-list">
-          <div class="button-wrapper">
-            <div class="button">上海</div>
+          <div class="button-wrapper" @click="handleCityClick($store.state.city)">
+            <div class="button">{{ this.$store.state.city }}</div>
           </div>
         </div>
       </div>
       <div class="area">
         <div class="title border-top-bottem">热门城市</div>
         <div class="button-list">
-          <div class="button-wrapper" v-for="item of hotCities" :key="item.id">
+          <div class="button-wrapper" v-for="item of hotCities" :key="item.id" @click="handleCityClick(item.name)">
             <div class="button">{{ item.name }}</div>
           </div>
         </div>
@@ -20,7 +20,9 @@
       <div class="area" v-for="(item, key) of cities" :key="key" :ref="key">
         <div class="title border-top-bottem">{{ key }}</div>
         <div class="item-list">
-          <div class="item" v-for="innerItem of item" :key="innerItem.id">{{ innerItem.name }}</div>
+          <div class="item" v-for="innerItem of item" :key="innerItem.id" @click="handleCityClick(innerItem.name)">
+            {{ innerItem.name }}
+          </div>
         </div>
       </div>
     </div>
@@ -41,6 +43,13 @@ export default {
     letter: {
       type: String,
       default: ''
+    }
+  },
+  methods: {
+    handleCityClick(city) {
+      // 派发changeCity的Action
+      this.$store.dispatch('changeCity', city)
+      this.$router.push('/')
     }
   },
   mounted() {

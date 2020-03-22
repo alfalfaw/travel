@@ -6,7 +6,7 @@
     <!-- keyword有值时显示 -->
     <div class="search-content" ref="search" v-show="keyword">
       <ul>
-        <li class="serach-item" v-for="(item, index) of list" :key="index">{{ item.name }}</li>
+        <li class="serach-item" v-for="(item, index) of list" :key="index" @click="handleCityClick(item.name)">{{ item.name }}</li>
         <!-- 没有查询结果时显示 -->
         <li class="serach-item" v-show="hasNoData">没有找到匹配数据</li>
       </ul>
@@ -30,7 +30,15 @@ export default {
       timer: null
     }
   },
+  methods: {
+    handleCityClick(city) {
+      // 派发changeCity的Action
+      this.$store.dispatch('changeCity', city)
+      this.$router.push('/')
+    }
+  },
   computed: {
+    // 判断是否有数据
     hasNoData() {
       return !this.list.length
     }

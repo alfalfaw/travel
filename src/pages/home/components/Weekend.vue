@@ -4,7 +4,7 @@
       周末去哪儿
     </div>
     <ul>
-      <li class="item" v-for="item of weekendList" :key="item.id">
+      <li class="item" v-for="item of weekendList" :key="'weekend' + item.id">
         <div class="item-img-wrapper">
           <img :src="item.imgUrl" alt="" />
         </div>
