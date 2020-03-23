@@ -8,6 +8,8 @@ import 'styles/reset.css'
 import 'styles/border.css'
 import 'styles/iconfont.css'
 
+import 'babel-polyfill'
+
 // store
 import store from './store'
 
