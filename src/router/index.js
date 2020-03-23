@@ -24,5 +24,9 @@ export default new Router({
       name: 'Detail',
       component: Detail
     }
-  ]
+  ],
+  // 当进行页面切换时，x、y轴初始是0
+  scrollBehavior(to, form, savedPosition) {
+    return { x: 0, y: 0 }
+  }
 })
